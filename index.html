@@ -4,173 +4,201 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Os Barbeiros JF · Gabriel Pires</title>
-<meta name="description" content="Barbearia Os Barbeiros JF — barbearia tradicional com estilo moderno em Benfica, Juiz de Fora. Nota 5,0 no Google. Cortes, barba e acabamento premium. Agende pelo Booksy.">
+<meta name="description" content="Barbearia Os Barbeiros JF — Benfica, Juiz de Fora. Nota 5,0 no Google. Máquina, disfarçado, tesoura, barba. Agende pelo Booksy.">
+<meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="fotos/favicon.png">
 <link rel="apple-touch-icon" href="fotos/logo-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;700;900&family=IBM+Plex+Mono:wght@400;600&family=Archivo:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  /* Identidade visual tirada da logo: preto, azul neon, branco/prata */
+  /* ========= Identidade: asfalto, cartaz e azul elétrico da logo ========= */
   :root {
-    --bg: #07080c;
-    --bg-alt: #0d1018;
-    --card: #111521;
-    --text: #f4f6fb;
-    --muted: #9aa3b5;
-    --blue: #2f7bff;
-    --blue-light: #6aa8ff;
-    --glow: 0 0 18px rgba(47,123,255,.55), 0 0 2px rgba(106,168,255,.9);
-    --line: #1d2333;
-    --radius: 14px;
+    --asfalto: #0b0b0c;
+    --concreto: #151517;
+    --concreto-2: #1f1f22;
+    --cartaz: #efece4;
+    --tinta: #0b0b0c;
+    --cinza: #8d8d93;
+    --azul: #2e6bff;
+    --azul-claro: #7fa6ff;
+    --display: "Big Shoulders Display", Impact, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --texto: "Archivo", system-ui, sans-serif;
+    --ruido: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; overflow-x: hidden; }
+  body { background: var(--asfalto) var(--ruido); color: var(--cartaz); font-family: var(--texto); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-  h1, h2, h3 { font-family: Oswald, Impact, sans-serif; text-transform: uppercase; letter-spacing: .04em; line-height: 1.15; }
-  h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin-bottom: .4rem; }
-  .script { font-family: "Great Vibes", cursive; text-transform: none; letter-spacing: 0; color: var(--blue-light); }
-  .eyebrow { color: var(--blue-light); font-weight: 600; letter-spacing: .22em; text-transform: uppercase; font-size: .78rem; }
-  section { padding: 88px 0; position: relative; }
-  .alt { background: var(--bg-alt); }
-  .lead { color: var(--muted); max-width: 620px; }
-  .center { text-align: center; }
-  .center .lead { margin: 0 auto; }
-  .divider { width: 64px; height: 3px; background: var(--blue); box-shadow: var(--glow); border-radius: 3px; margin: 14px 0 18px; }
-  .center .divider { margin-left: auto; margin-right: auto; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+  .mono { font-family: var(--mono); }
+  .rotulo { font-family: var(--mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--azul-claro); }
+  .titulo { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .86; letter-spacing: -.01em; font-size: clamp(3rem, 9vw, 7.5rem); }
+  .titulo .fino { font-weight: 300; }
+  .titulo .azul { color: var(--azul); }
+  section { padding: 96px 0; position: relative; }
 
-  .btn { display: inline-flex; align-items: center; gap: .55rem; padding: 14px 26px; border-radius: 999px; font-weight: 600; transition: transform .15s, box-shadow .2s, background .2s; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-blue { background: var(--blue); color: #fff; box-shadow: 0 0 0 rgba(47,123,255,0); }
-  .btn-blue:hover { box-shadow: var(--glow); }
-  .btn-ghost { border: 1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.25); }
-  .btn-ghost:hover { border-color: var(--blue-light); }
+  /* Botões: blocos sólidos, sem arredondar demais */
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; font-family: var(--mono); font-weight: 600; font-size: .92rem; letter-spacing: .06em; text-transform: uppercase; border: 2px solid var(--cartaz); transition: transform .15s, background .15s, color .15s, box-shadow .15s; }
+  .btn:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--azul); }
+  .btn-azul { background: var(--azul); border-color: var(--azul); color: #fff; }
+  .btn-azul:hover { box-shadow: 6px 6px 0 var(--cartaz); }
+  .btn-claro { background: var(--cartaz); color: var(--tinta); }
+  .btn-vazado { color: var(--cartaz); }
+  .seta { font-family: var(--texto); font-weight: 600; }
 
-  /* Header */
-  header { position: sticky; top: 0; z-index: 30; background: rgba(7,8,12,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .brand { display: flex; align-items: center; gap: 10px; }
-  .brand img { width: 44px; height: 44px; border-radius: 50%; box-shadow: var(--glow); }
-  .brand b { font-family: Oswald, sans-serif; letter-spacing: .1em; font-size: 1.15rem; }
-  nav { display: flex; gap: 22px; align-items: center; }
-  nav a.link { color: var(--muted); font-size: .93rem; }
-  nav a.link:hover { color: var(--text); }
-  nav .btn { padding: 9px 18px; }
-  @media (max-width: 820px) { nav a.link { display: none; } }
+  /* ========= Topo ========= */
+  header { position: sticky; top: 0; z-index: 30; background: rgba(11,11,12,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #26262a; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .marca { display: flex; align-items: center; gap: 12px; }
+  .marca img { width: 42px; height: 42px; }
+  .marca b { font-family: var(--display); font-weight: 900; font-size: 1.45rem; letter-spacing: .04em; }
+  nav { display: flex; gap: 26px; align-items: center; }
+  nav a.link { font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--cinza); }
+  nav a.link:hover { color: var(--cartaz); }
+  nav .btn { padding: 10px 16px; font-size: .78rem; }
+  @media (max-width: 860px) { nav a.link { display: none; } }
 
-  /* Hero */
-  .hero { min-height: calc(100vh - 68px); display: flex; align-items: center; padding: 64px 0; overflow: hidden;
-    background: linear-gradient(90deg, rgba(7,8,12,.97) 0%, rgba(7,8,12,.85) 45%, rgba(7,8,12,.55) 100%), url("fotos/atendimento.jpg") center/cover; }
-  .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
-  @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .hero-logo { order: -1; } }
-  .hero h1 { font-size: clamp(2.5rem, 7vw, 4.6rem); margin: .5rem 0 .2rem; }
-  .hero h1 .neon { color: #fff; text-shadow: 0 0 22px rgba(47,123,255,.8); }
-  .hero .sign { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
-  .hero p { color: #c7cedb; font-size: 1.12rem; max-width: 540px; }
-  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
-  .hero-logo { display: grid; place-items: center; }
-  .hero-logo img { width: min(420px, 80vw); border-radius: 28px; box-shadow: 0 0 70px rgba(47,123,255,.35); }
-  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2.2rem; }
-  .badge { background: rgba(17,21,33,.8); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: .9rem; color: #c7cedb; }
-  .badge b { color: #fff; }
-  .stars { color: #ffc531; letter-spacing: 2px; }
+  /* ========= Hero ========= */
+  .hero { padding: 54px 0 0; overflow: hidden; }
+  .hero .grade { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: end; }
+  @media (max-width: 900px) { .hero .grade { grid-template-columns: 1fr; } }
+  .hero .titulo { font-size: clamp(4.2rem, 13vw, 10.5rem); }
+  .hero .titulo span { display: block; }
+  .linha-entra { opacity: 0; transform: translateY(40%); animation: entra .8s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes entra { to { opacity: 1; transform: none; } }
+  .hero .assinatura { display: flex; align-items: center; gap: 14px; margin: 22px 0 18px; }
+  .hero .assinatura::before { content: ""; width: 48px; height: 2px; background: var(--azul); }
+  .hero p.lead { max-width: 470px; font-size: 1.12rem; color: #c9c7c0; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+  .fatos { display: grid; grid-template-columns: repeat(3, auto); gap: 0; margin-top: 36px; border-top: 1px solid #2a2a2e; width: max-content; max-width: 100%; }
+  .fatos div { padding: 14px 22px 0 0; margin-right: 22px; border-right: 1px solid #2a2a2e; }
+  .fatos div:last-child { border-right: 0; }
+  .fatos b { display: block; font-family: var(--display); font-weight: 900; font-size: 2rem; line-height: 1; }
+  .fatos small { font-family: var(--mono); font-size: .72rem; color: var(--cinza); text-transform: uppercase; letter-spacing: .08em; }
+  .fatos .estrelas { color: var(--azul-claro); letter-spacing: 2px; }
+  @media (max-width: 520px) { .fatos { grid-template-columns: 1fr 1fr; } .fatos div:nth-child(3) { display: none; } }
 
-  /* Serviços */
-  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 2.4rem; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: border-color .2s, box-shadow .2s, transform .2s; }
-  .card:hover { border-color: rgba(47,123,255,.6); box-shadow: 0 0 24px rgba(47,123,255,.15); transform: translateY(-3px); }
-  .card .icon { font-size: 1.8rem; margin-bottom: .8rem; }
-  .card h3 { font-size: 1.25rem; margin-bottom: .4rem; }
-  .card p { color: var(--muted); font-size: .95rem; }
-  .card .price { color: var(--blue-light); font-family: Oswald, sans-serif; font-size: 1.6rem; font-weight: 700; margin-top: .8rem; text-shadow: 0 0 14px rgba(47,123,255,.45); }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
-  .hours { border-collapse: collapse; margin-bottom: 4px; }
-  .hours td { padding: 2px 18px 2px 0; }
-  .hours td:first-child { color: var(--muted); }
+  .hero-foto { position: relative; align-self: stretch; min-height: 520px; }
+  .hero-foto .foto { position: absolute; inset: 0 0 0 0; clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); overflow: hidden; }
+  .hero-foto .foto img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15) brightness(.85); }
+  .hero-foto .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, var(--asfalto) 0%, transparent 35%), linear-gradient(90deg, rgba(46,107,255,.35), transparent 60%); mix-blend-mode: normal; }
+  .hero-foto .selo { position: absolute; left: -10px; bottom: 34px; width: 150px; border: 3px solid var(--asfalto); box-shadow: 8px 8px 0 var(--azul); }
+  @media (max-width: 900px) { .hero-foto { min-height: 360px; margin: 0 -16px; } .hero-foto .foto { clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); } .hero-foto .selo { left: 16px; width: 110px; } }
+  .letreiro { position: absolute; right: -2vw; top: 0; font-family: var(--display); font-weight: 900; font-size: 22vw; line-height: .8; color: transparent; -webkit-text-stroke: 1px rgba(239,236,228,.06); pointer-events: none; white-space: nowrap; z-index: -1; }
 
-  /* Galeria (fotos do Google) */
-  .gallery { display: grid; gap: 10px; margin-top: 2.4rem; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; }
-  .gallery figure { border-radius: 12px; overflow: hidden; position: relative; background: var(--card); }
-  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-  .gallery figure:hover img { transform: scale(1.05); }
-  .gallery .tall { grid-row: span 2; }
-  .gallery .wide { grid-column: span 2; }
-  .gallery .full { grid-column: 1 / -1; }
-  .gallery .full img { object-position: center 40%; }
-  @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } }
+  /* ========= Faixa rolando ========= */
+  .faixa { background: var(--azul); color: #fff; overflow: hidden; transform: rotate(-1.5deg); margin: 0 -20px; border-top: 2px solid var(--asfalto); border-bottom: 2px solid var(--asfalto); }
+  .faixa div { display: flex; gap: 38px; width: max-content; padding: 14px 0; animation: rola 28s linear infinite; font-family: var(--display); font-weight: 900; font-size: 1.9rem; text-transform: uppercase; letter-spacing: .02em; }
+  .faixa span::after { content: "✂"; margin-left: 38px; font-size: 1.2rem; vertical-align: middle; }
+  @keyframes rola { to { transform: translateX(-50%); } }
 
-  /* Instagram */
-  .ig-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-  .ig-profile { display: flex; align-items: center; gap: 16px; }
-  .ig-avatar { width: 76px; height: 76px; border-radius: 50%; padding: 3px; background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); flex: none; }
-  .ig-avatar img { width: 100%; height: 100%; border-radius: 50%; border: 3px solid var(--bg); }
-  .ig-profile h3 { font-size: 1.3rem; }
-  .ig-bio { color: var(--muted); font-size: .95rem; white-space: pre-line; margin-top: 1.2rem; }
-  .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 2rem; }
-  .ig-grid a { aspect-ratio: 3/4; border-radius: 10px; overflow: hidden; position: relative; background: var(--card); }
-  .ig-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
-  .ig-grid a::after { content: "♥  Ver no Instagram"; position: absolute; inset: 0; display: grid; place-items: center; background: rgba(7,8,12,.6); opacity: 0; transition: opacity .25s; font-weight: 600; font-size: .9rem; }
-  .ig-grid a:hover::after { opacity: 1; }
-  .ig-grid a:hover img { transform: scale(1.05); }
+  /* ========= Preços: cartaz colado na parede ========= */
+  .precos .grade { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: start; }
+  @media (max-width: 900px) { .precos .grade { grid-template-columns: 1fr; gap: 32px; } }
+  .precos .titulo { font-size: clamp(3.2rem, 8vw, 6.2rem); margin: 10px 0 18px; }
+  .precos p.lead { color: #c9c7c0; max-width: 380px; }
+  .cartaz { background: var(--cartaz) var(--ruido); color: var(--tinta); padding: 36px 34px 30px; transform: rotate(.8deg); box-shadow: 14px 14px 0 var(--azul); position: relative; }
+  .cartaz::before, .cartaz::after { content: ""; position: absolute; top: -12px; width: 86px; height: 26px; background: rgba(239,236,228,.55); border: 1px solid rgba(0,0,0,.08); }
+  .cartaz::before { left: 22px; transform: rotate(-6deg); }
+  .cartaz::after { right: 22px; transform: rotate(5deg); }
+  .cartaz h3 { font-family: var(--display); font-weight: 900; font-size: 2.2rem; text-transform: uppercase; line-height: 1; border-bottom: 3px solid var(--tinta); padding-bottom: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
+  .cartaz h3 small { font-family: var(--mono); font-size: .75rem; font-weight: 400; }
+  .item-preco { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px dashed rgba(11,11,12,.3); }
+  .item-preco:last-of-type { border-bottom: 0; }
+  .item-preco b { font-family: var(--display); font-weight: 700; font-size: 1.65rem; text-transform: uppercase; line-height: 1; }
+  .item-preco i { flex: 1; border-bottom: 2px dotted rgba(11,11,12,.45); transform: translateY(-5px); }
+  .item-preco span { font-family: var(--mono); font-weight: 600; font-size: 1.15rem; white-space: nowrap; }
+  .item-preco > div { min-width: 0; }
+  .item-preco small { display: block; font-size: .82rem; color: #55534d; margin-top: 4px; font-weight: 400; }
+  .cartaz .rodape { margin-top: 18px; padding-top: 14px; border-top: 3px solid var(--tinta); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-family: var(--mono); font-size: .8rem; }
 
-  /* Avaliações */
-  .rating-head { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 1.2rem; flex-wrap: wrap; }
-  .rating-head .score { font-family: Oswald, sans-serif; font-size: 3.4rem; line-height: 1; }
-  .rating-head .stars { font-size: 1.4rem; }
-  .rating-head small { color: var(--muted); display: block; }
-  .reviews { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 2.4rem; text-align: left; }
-  .review { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-  .review p { color: #d3d9e5; font-size: .97rem; flex: 1; }
-  .review .who { display: flex; align-items: center; gap: 10px; }
-  .review .av { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; font-weight: 700; }
-  .review .who small { color: var(--muted); display: block; font-size: .8rem; }
-  .g-logo { font-weight: 700; font-size: .85rem; letter-spacing: .02em; }
-  .g-logo span:nth-child(1){color:#4285f4}.g-logo span:nth-child(2){color:#ea4335}.g-logo span:nth-child(3){color:#fbbc05}.g-logo span:nth-child(4){color:#4285f4}.g-logo span:nth-child(5){color:#34a853}.g-logo span:nth-child(6){color:#ea4335}
+  /* ========= Trabalhos ========= */
+  .cab { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+  .cab .titulo { font-size: clamp(3rem, 8vw, 6rem); margin-top: 10px; }
+  .mosaico { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 90px; gap: 10px; }
+  .mosaico a { position: relative; overflow: hidden; background: var(--concreto-2); }
+  .mosaico img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.85) contrast(1.1); transition: filter .35s, transform .5s; }
+  .mosaico a:hover img { filter: none; transform: scale(1.04); }
+  .mosaico a::after { content: attr(data-legenda); position: absolute; left: 0; bottom: 0; background: var(--asfalto); color: var(--cartaz); font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; padding: 6px 10px; }
+  .m1 { grid-column: span 4; grid-row: span 5; } .m2 { grid-column: span 4; grid-row: span 3; } .m3 { grid-column: span 4; grid-row: span 4; }
+  .m4 { grid-column: span 4; grid-row: span 2; } .m5 { grid-column: span 4; grid-row: span 3; } .m6 { grid-column: span 8; grid-row: span 3; }
+  @media (max-width: 760px) { .mosaico { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; } .mosaico a { grid-column: span 1 !important; grid-row: span 1 !important; } .mosaico .m1, .mosaico .m6 { grid-column: span 2 !important; grid-row: span 2 !important; } }
 
-  /* Localização */
-  .loc { display: grid; gap: 24px; grid-template-columns: 1fr 1.3fr; margin-top: 2.4rem; }
-  @media (max-width: 860px) { .loc { grid-template-columns: 1fr; } }
-  .loc-photo { border-radius: var(--radius); overflow: hidden; height: 200px; margin-bottom: 22px; }
-  .loc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-  .info-list { list-style: none; display: grid; gap: 16px; }
-  .info-list li { display: flex; gap: 14px; }
-  .info-list .i { font-size: 1.3rem; width: 28px; flex: none; }
-  .info-list small { display: block; color: var(--muted); }
-  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 380px; }
-  .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; filter: grayscale(.3) invert(.92) hue-rotate(180deg); }
+  /* ========= Avaliações ========= */
+  .avaliacoes { background: var(--concreto) var(--ruido); border-top: 1px solid #26262a; border-bottom: 1px solid #26262a; }
+  .aval-grade { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .aval-grade { grid-template-columns: 1fr; gap: 28px; } }
+  .nota { font-family: var(--display); font-weight: 900; font-size: 9rem; line-height: .8; }
+  .nota small { font-size: 2.4rem; color: var(--cinza); }
+  .citacao { position: relative; min-height: 210px; }
+  .citacao blockquote { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.12; text-transform: uppercase; }
+  .citacao blockquote::before { content: "“"; color: var(--azul); }
+  .citacao blockquote::after { content: "”"; color: var(--azul); }
+  .citacao cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--mono); font-size: .82rem; color: var(--cinza); text-transform: uppercase; letter-spacing: .08em; }
+  .citacao .troca { animation: aparece .45s ease; }
+  @keyframes aparece { from { opacity: 0; transform: translateY(10px); } }
+  .controles { display: flex; gap: 10px; align-items: center; margin-top: 26px; }
+  .controles button { width: 48px; height: 48px; background: transparent; color: var(--cartaz); border: 2px solid var(--cartaz); font-size: 1.2rem; cursor: pointer; transition: background .15s, color .15s; }
+  .controles button:hover { background: var(--cartaz); color: var(--tinta); }
+  .controles .cont { font-family: var(--mono); font-size: .8rem; color: var(--cinza); margin-left: 8px; }
 
-  /* CTA final */
-  .cta-final { text-align: center; background: radial-gradient(ellipse at center, rgba(47,123,255,.22), transparent 65%), var(--bg); }
-  .cta-final img { width: 160px; border-radius: 20px; margin: 0 auto 18px; box-shadow: var(--glow); }
-  .cta-final .lead { margin: .5rem auto 2rem; }
+  /* ========= Local ========= */
+  .local .grade { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; border: 2px solid var(--cartaz); }
+  @media (max-width: 860px) { .local .grade { grid-template-columns: 1fr; } }
+  .local .info { padding: 36px; display: grid; gap: 26px; align-content: start; }
+  .local h4 { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--azul-claro); margin-bottom: 6px; font-weight: 400; }
+  .local .end { font-family: var(--display); font-weight: 700; font-size: 1.9rem; line-height: 1.05; text-transform: uppercase; }
+  .horarios { font-family: var(--mono); font-size: .95rem; }
+  .horarios div { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px dashed #333; }
+  .horarios .hoje { color: var(--azul-claro); }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+  .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--cinza); }
+  .status.aberto::before { background: #2ee67a; box-shadow: 0 0 10px #2ee67a; }
+  .mapa { min-height: 420px; border-left: 2px solid var(--cartaz); }
+  @media (max-width: 860px) { .mapa { border-left: 0; border-top: 2px solid var(--cartaz); min-height: 320px; } }
+  .mapa iframe { width: 100%; height: 100%; min-height: inherit; border: 0; filter: grayscale(1) invert(.92) contrast(1.05); display: block; }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .9rem; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  /* ========= Final ========= */
+  .final { text-align: center; padding: 120px 0 130px; overflow: hidden; }
+  .final .titulo { font-size: clamp(3.6rem, 12vw, 10rem); }
+  .final .ctas { justify-content: center; }
+  footer { border-top: 1px solid #26262a; padding: 26px 0 30px; font-family: var(--mono); font-size: .78rem; color: var(--cinza); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; }
+  footer a:hover { color: var(--cartaz); }
 
-  .wa-float { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.5); z-index: 40; }
-  .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+  /* ========= Barra fixa no celular (agendar rápido) ========= */
+  .barra-cel { display: none; }
+  @media (max-width: 760px) {
+    .barra-cel { display: grid; grid-template-columns: 1.6fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; border-top: 2px solid var(--asfalto); }
+    .barra-cel a { padding: 17px 10px; text-align: center; font-family: var(--mono); font-weight: 600; font-size: .9rem; text-transform: uppercase; letter-spacing: .06em; }
+    .barra-cel .ag { background: var(--azul); color: #fff; }
+    .barra-cel .wa { background: var(--cartaz); color: var(--tinta); }
+    body { padding-bottom: 58px; }
+    section { padding: 72px 0; }
+  }
 
-  /* Animação ao rolar */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
-  .reveal.on { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+  .revela { opacity: 0; transform: translateY(28px); transition: opacity .7s, transform .7s; }
+  .revela.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .linha-entra, .revela { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a href="#" class="brand"><img src="fotos/logo.jpg" alt="Logo Os Barbeiros"><b>OS BARBEIROS</b></a>
+    <a href="#" class="marca"><img src="fotos/logo.jpg" alt="Logo Os Barbeiros"><b>OS BARBEIROS</b></a>
     <nav>
-      <a class="link" href="#servicos">Serviços</a>
-      <a class="link" href="#espaco">O espaço</a>
-      <a class="link" href="#instagram">Instagram</a>
+      <a class="link" href="#precos">Preços</a>
+      <a class="link" href="#trabalhos">Trabalhos</a>
       <a class="link" href="#avaliacoes">Avaliações</a>
-      <a class="link" href="#local">Localização</a>
-      <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">Agendar</a>
+      <a class="link" href="#local">Local</a>
+      <a class="btn btn-azul js-booksy" href="#" target="_blank" rel="noopener">Agendar</a>
     </nav>
   </div>
 </header>
@@ -178,123 +206,105 @@
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
+    <div class="letreiro" aria-hidden="true">BENFICA</div>
+    <div class="wrap grade">
+      <div style="padding-bottom:56px">
+        <div class="rotulo linha-entra" style="animation-delay:.05s">Benfica · Juiz de Fora · desde 2018</div>
+        <h1 class="titulo" style="margin-top:18px">
+          <span class="linha-entra" style="animation-delay:.15s">Corte</span>
+          <span class="linha-entra fino" style="animation-delay:.27s">na régua,</span>
+          <span class="linha-entra azul" style="animation-delay:.39s">sem fila.</span>
+        </h1>
+        <div class="assinatura rotulo linha-entra" style="animation-delay:.55s">Os Barbeiros · Gabriel Pires</div>
+        <p class="lead linha-entra" style="animation-delay:.62s">Barbearia tradicional com estilo moderno. Escolha o horário no Booksy e chegue só na hora de sentar na cadeira.</p>
+        <div class="ctas linha-entra" style="animation-delay:.72s">
+          <a class="btn btn-azul js-booksy" href="#" target="_blank" rel="noopener">Agendar no Booksy <span class="seta">→</span></a>
+          <a class="btn btn-vazado js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="fatos linha-entra" style="animation-delay:.85s">
+          <a class="js-google" href="#" target="_blank" rel="noopener"><div><b>5,0 <span class="estrelas" style="font-size:1rem">★★★★★</span></b><small>67 avaliações Google</small></div></a>
+          <div><b>R$ 25</b><small>corte a partir de</small></div>
+          <div><b>8h–20h</b><small>seg a sex · sáb até 16h</small></div>
+        </div>
+      </div>
+      <div class="hero-foto linha-entra" style="animation-delay:.3s">
+        <div class="foto"><img src="fotos/corte2.jpg" alt="Corte disfarçado feito na barbearia"></div>
+        <img class="selo" src="fotos/logo.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"><div id="faixa"></div></div>
+
+  <!-- PREÇOS -->
+  <section id="precos" class="precos">
+    <div class="wrap grade revela">
       <div>
-        <div class="eyebrow">💈 Benfica · Juiz de Fora · desde 2018</div>
-        <h1>Os <span class="neon">Barbeiros</span></h1>
-        <div class="script sign">Gabriel Pires</div>
-        <p>Barbearia tradicional com estilo moderno. Cortes, barba e acabamento premium — marque seu horário online em segundos.</p>
-        <div class="ctas">
-          <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">📅 Agendar no Booksy</a>
-          <a class="btn btn-ghost js-whatsapp" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
-        </div>
-        <div class="badges">
-          <a class="badge js-google" href="#" target="_blank" rel="noopener"><span class="stars">★★★★★</span> <b>5,0</b> · 67 avaliações no Google</a>
-          <span class="badge">🕗 Seg–Sex <b>8h–20h</b> · Sáb <b>8h–16h</b></span>
-          <span class="badge">❄️ Ambiente climatizado</span>
-          <span class="badge">🏳️‍🌈 Espaço acolhedor</span>
-        </div>
+        <div class="rotulo">Tabela</div>
+        <h2 class="titulo">Preço<br><span class="fino">na parede.</span></h2>
+        <p class="lead">Sem surpresa no fim. Escolha o serviço, marque no Booksy e pague no salão.</p>
+        <div class="ctas"><a class="btn btn-claro js-booksy" href="#" target="_blank" rel="noopener">Ver horários livres <span class="seta">→</span></a></div>
       </div>
-      <div class="hero-logo"><img src="fotos/logo.jpg" alt="Logo Os Barbeiros — Gabriel Pires, desde 2018"></div>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="alt">
-    <div class="wrap reveal">
-      <div class="eyebrow">O que fazemos</div>
-      <h2>Serviços</h2>
-      <div class="divider"></div>
-      <p class="lead">Atendimento caprichado do início ao fim. Escolha o serviço e marque seu horário no Booksy.</p>
-      <div class="grid grid-3">
-        <div class="card"><div class="icon">💈</div><h3>Máquina geral</h3><p>Corte todo na máquina, prático e alinhado.</p><div class="price">R$ 25,00</div></div>
-        <div class="card"><div class="icon">✂️</div><h3>Disfarçado</h3><p>Degradê na régua, do mais baixo ao mais marcado.</p><div class="price">R$ 35,00</div></div>
-        <div class="card"><div class="icon">✂️</div><h3>Tesoura</h3><p>Corte na tesoura para quem quer volume e caimento natural.</p><div class="price">R$ 35,00</div></div>
-        <div class="card"><div class="icon">🧔</div><h3>Barba</h3><p>Barba desenhada e alinhada, do jeito que você gosta.</p><div class="price">R$ 25,00</div></div>
-        <div class="card"><div class="icon">👁️</div><h3>Sobrancelha</h3><p>Limpeza e alinhamento da sobrancelha.</p><div class="price">R$ 10,00</div></div>
-        <div class="card"><div class="icon">✨</div><h3>Pezinho</h3><p>Acabamento rápido entre um corte e outro.</p><div class="price">R$ 10,00</div></div>
+      <div class="cartaz">
+        <h3>Os Barbeiros <small>JF · 2026</small></h3>
+        <div id="lista-precos"></div>
+        <div class="rodape"><span>Seg–Sex 08:00–20:00</span><span>Sáb 08:00–16:00</span><span>Dom fechado</span></div>
       </div>
     </div>
   </section>
 
-  <!-- O ESPAÇO (fotos do Google) -->
-  <section id="espaco">
-    <div class="wrap reveal">
-      <div class="eyebrow">Fotos do Google</div>
-      <h2>O espaço</h2>
-      <div class="divider"></div>
-      <p class="lead">Ambiente climatizado, acolhedor e com café fresco esperando por você.</p>
-      <div class="gallery">
-        <figure class="tall"><img src="fotos/fachada.jpg" alt="Fachada da barbearia" loading="lazy"></figure>
-        <figure class="wide"><img src="fotos/salao2.jpg" alt="Bancadas e espelhos do salão" loading="lazy"></figure>
-        <figure class="tall"><img src="fotos/cadeira.jpg" alt="Cadeira de barbeiro" loading="lazy"></figure>
-        <figure><img src="fotos/atendimento.jpg" alt="Barbeiro atendendo cliente" loading="lazy"></figure>
-        <figure><img src="fotos/decoracao.jpg" alt="Decoração da barbearia" loading="lazy"></figure>
-        <figure class="full"><img src="fotos/salao1.jpg" alt="Interior da barbearia" loading="lazy"></figure>
+  <!-- TRABALHOS -->
+  <section id="trabalhos">
+    <div class="wrap revela">
+      <div class="cab">
+        <div><div class="rotulo">Trabalhos &amp; espaço</div><h2 class="titulo">Saiu da<br><span class="azul">cadeira.</span></h2></div>
+        <a class="btn btn-vazado js-instagram" href="#" target="_blank" rel="noopener">@gabrielpires_barber01 <span class="seta">↗</span></a>
       </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section id="instagram" class="alt">
-    <div class="wrap reveal">
-      <div class="ig-head">
-        <div class="ig-profile">
-          <div class="ig-avatar"><img src="fotos/logo.jpg" alt=""></div>
-          <div>
-            <div class="eyebrow">Instagram</div>
-            <h3>@gabrielpires_barber01</h3>
-          </div>
-        </div>
-        <a class="btn btn-ghost js-instagram" href="#" target="_blank" rel="noopener">Seguir no Instagram</a>
+      <div class="mosaico">
+        <a class="m1 js-instagram" href="#" target="_blank" rel="noopener" data-legenda="Barba"><img src="fotos/corte1.jpg" alt="Barba ruiva modelada" loading="lazy"></a>
+        <a class="m2 js-google" href="#" target="_blank" rel="noopener" data-legenda="O salão"><img src="fotos/salao2.jpg" alt="Bancadas do salão" loading="lazy"></a>
+        <a class="m3 js-instagram" href="#" target="_blank" rel="noopener" data-legenda="Corte + barba"><img src="fotos/corte3.jpg" alt="Corte com barba alinhada" loading="lazy"></a>
+        <a class="m4 js-google" href="#" target="_blank" rel="noopener" data-legenda="Na cadeira"><img src="fotos/atendimento.jpg" alt="Barbeiro atendendo" loading="lazy"></a>
+        <a class="m5 js-google" href="#" target="_blank" rel="noopener" data-legenda="A cadeira"><img src="fotos/cadeira.jpg" alt="Cadeira de barbeiro" loading="lazy"></a>
+        <a class="m6 js-google" href="#" target="_blank" rel="noopener" data-legenda="Fachada · R. Diogo Álvares"><img src="fotos/fachada.jpg" alt="Fachada da barbearia" loading="lazy" style="object-position:center 55%"></a>
       </div>
-      <p class="ig-bio">✂️ Barbearia tradicional com estilo moderno
-💈 Cortes, barba e acabamento premium
-📍 Desde 2018</p>
-      <div class="ig-grid" id="ig-grid"></div>
     </div>
   </section>
 
   <!-- AVALIAÇÕES -->
-  <section id="avaliacoes" class="center">
-    <div class="wrap reveal">
-      <div class="eyebrow">Quem corta, recomenda</div>
-      <h2>Avaliações</h2>
-      <div class="divider"></div>
-      <a class="rating-head js-google" href="#" target="_blank" rel="noopener">
-        <div class="score">5,0</div>
-        <div style="text-align:left"><div class="stars">★★★★★</div><small>67 avaliações no <span class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></span></small></div>
-      </a>
-      <div class="reviews" id="reviews"></div>
-      <div style="margin-top:2rem"><a class="btn btn-ghost js-google" href="#" target="_blank" rel="noopener">Ver todas no Google →</a></div>
+  <section id="avaliacoes" class="avaliacoes">
+    <div class="wrap aval-grade revela">
+      <div>
+        <div class="rotulo">Google</div>
+        <div class="nota" style="margin-top:12px">5,0<small>/5</small></div>
+        <p class="mono" style="color:var(--cinza);font-size:.85rem;margin-top:10px">67 avaliações · todas as notas que aparecem aqui são 5 estrelas</p>
+        <a class="btn btn-vazado js-google" href="#" target="_blank" rel="noopener" style="margin-top:20px">Ver no Google <span class="seta">↗</span></a>
+      </div>
+      <div>
+        <div class="citacao" id="citacao" aria-live="polite"></div>
+        <div class="controles">
+          <button id="ant" aria-label="Avaliação anterior">←</button>
+          <button id="prox" aria-label="Próxima avaliação">→</button>
+          <span class="cont" id="cont"></span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- LOCALIZAÇÃO -->
-  <section id="local" class="alt">
-    <div class="wrap reveal">
-      <div class="eyebrow">Venha nos visitar</div>
-      <h2>Localização &amp; horário</h2>
-      <div class="divider"></div>
-      <div class="loc">
-        <div>
-          <div class="loc-photo"><img src="fotos/fachada.jpg" alt="Fachada da barbearia" loading="lazy"></div>
-          <ul class="info-list">
-            <li><span class="i">📍</span><div><b>R. Diogo Álvares, 389 – Loja 1</b><small>Benfica, Juiz de Fora – MG · perto da praça</small></div></li>
-            <li><span class="i">🕗</span><div>
-              <table class="hours">
-                <tr><td>Segunda a sexta</td><td><b>08:00 às 20:00</b></td></tr>
-                <tr><td>Sábado</td><td><b>08:00 às 16:00</b></td></tr>
-                <tr><td>Domingo</td><td>Fechado</td></tr>
-              </table>
-              <small>Veja os horários livres no Booksy</small></div></li>
-            <li><span class="i">📞</span><div><b><a class="js-whatsapp" href="#" target="_blank" rel="noopener">(32) 99123-4073</a></b><small>WhatsApp</small></div></li>
-          </ul>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-            <a class="btn btn-blue js-google" href="#" target="_blank" rel="noopener">🧭 Como chegar</a>
+  <!-- LOCAL -->
+  <section id="local" class="local">
+    <div class="wrap revela">
+      <div class="cab"><div><div class="rotulo">Onde fica</div><h2 class="titulo">Perto<br><span class="fino">da praça.</span></h2></div></div>
+      <div class="grade">
+        <div class="info">
+          <div><h4>Endereço</h4><p class="end">R. Diogo Álvares, 389<br>Loja 1 · Benfica</p><p class="mono" style="color:var(--cinza);font-size:.85rem;margin-top:6px">Juiz de Fora – MG · 36090-320</p></div>
+          <div><h4>Horário <span class="status" id="status" style="margin-left:10px"></span></h4><div class="horarios" id="horarios"></div></div>
+          <div class="ctas" style="margin-top:0">
+            <a class="btn btn-claro js-google" href="#" target="_blank" rel="noopener">Como chegar</a>
+            <a class="btn btn-vazado js-whatsapp" href="#" target="_blank" rel="noopener">(32) 99123-4073</a>
           </div>
         </div>
-        <div class="map">
+        <div class="mapa">
           <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da barbearia"
             src="https://www.google.com/maps?q=Barbearia+Os+Barbeiros+JF,+R.+Diogo+%C3%81lvares,+389,+Juiz+de+Fora+-+MG&output=embed"></iframe>
         </div>
@@ -302,27 +312,30 @@
     </div>
   </section>
 
-  <!-- CTA FINAL -->
-  <section class="cta-final">
-    <div class="wrap reveal">
-      <img src="fotos/logo.jpg" alt="">
-      <h2>Bora dar um tapa no visual?</h2>
-      <p class="lead">Escolha o serviço, o dia e o horário direto no Booksy.</p>
-      <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">📅 Agendar meu horário</a>
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap revela">
+      <div class="rotulo">Próximo horário livre está no Booksy</div>
+      <h2 class="titulo" style="margin:18px 0 36px">Bora pra<br><span class="azul">cadeira?</span></h2>
+      <div class="ctas">
+        <a class="btn btn-azul js-booksy" href="#" target="_blank" rel="noopener">Agendar no Booksy <span class="seta">→</span></a>
+        <a class="btn btn-vazado js-whatsapp" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="ano"></span> Barbearia Os Barbeiros JF · Gabriel Pires</span>
-    <span><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a> · <a class="js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a class="js-booksy" href="#" target="_blank" rel="noopener">Booksy</a></span>
+    <span>© <span id="ano"></span> Os Barbeiros JF · Gabriel Pires</span>
+    <span><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a> · <a class="js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a class="js-booksy" href="#" target="_blank" rel="noopener">Booksy</a> · <a class="js-google" href="#" target="_blank" rel="noopener">Google</a></span>
   </div>
 </footer>
 
-<a class="wa-float js-whatsapp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.2.6 4.4 1.7 6.3L3 29l7.2-1.9c1.8 1 3.9 1.5 5.9 1.5 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.1 10 10 5.2 16 5.2S26.9 10 26.9 16 22 26.2 16 26.2zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
-</a>
+<div class="barra-cel">
+  <a class="ag js-booksy" href="#" target="_blank" rel="noopener">Agendar →</a>
+  <a class="wa js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <script>
   // ============ CONFIGURAÇÃO — edite só aqui ============
@@ -333,56 +346,79 @@
     google: "https://maps.app.goo.gl/CE2bm7PWRhQGa71v7",
     whatsapp: "https://wa.me/5532991234073?text=" + encodeURIComponent("Olá! Vim pelo site e gostaria de agendar um horário."),
 
-    // Posts do Instagram (foto local + link do post, opcional)
-    fotos: [
-      { src: "fotos/corte1.jpg" },
-      { src: "fotos/corte2.jpg" },
-      { src: "fotos/corte3.jpg" },
+    servicos: [
+      { nome: "Máquina geral", desc: "Corte todo na máquina, prático e alinhado.", preco: 25 },
+      { nome: "Disfarçado",    desc: "Degradê na régua, do mais baixo ao mais marcado.", preco: 35 },
+      { nome: "Tesoura",       desc: "Volume e caimento natural.", preco: 35 },
+      { nome: "Barba",         desc: "Desenhada e alinhada.", preco: 25 },
+      { nome: "Sobrancelha",   desc: "Limpeza e alinhamento.", preco: 10 },
+      { nome: "Pezinho",       desc: "Acabamento entre um corte e outro.", preco: 10 },
     ],
+
+    // 0 = domingo ... 6 = sábado
+    horarios: { 0: null, 1: ["08:00", "20:00"], 2: ["08:00", "20:00"], 3: ["08:00", "20:00"], 4: ["08:00", "20:00"], 5: ["08:00", "20:00"], 6: ["08:00", "16:00"] },
 
     // Avaliações reais do Google (5 estrelas)
     avaliacoes: [
-      { nome: "William C.", quando: "há 4 meses", texto: "Experiência muito boa! Tudo impecável. Profissionais atenciosos, ambiente agradável e climatizado, um cuidado visível em cada detalhe. Dá pra ver que trabalham com respeito ao cliente." },
-      { nome: "Sharda V.", quando: "há 6 meses", texto: "Atendimento muito bom, profissional muito caprichoso. O corte ficou do jeito que eu queria. Com certeza vou voltar. Indico muito!" },
-      { nome: "Raphael C.", quando: "há 2 anos", texto: "Excelentes profissionais. Saí na régua e 10 anos mais novo." },
-      { nome: "Yuri Q.", quando: "há 2 anos", texto: "Corto lá toda semana, sempre muito bem atendido. Marco o horário e nunca tem atraso. Recomendo." },
-      { nome: "Christian C.", quando: "há 1 ano", texto: "Corte de qualidade, ótimo atendimento, atenciosos demais com todos os clientes, preço acessível para todos! Recomendo demais." },
-      { nome: "Gleiton S.", quando: "há 3 anos", texto: "Muito satisfeito. Todas as vezes que venho da Itália só corto com o Gabriel, nota 1.000!" },
+      { nome: "William C.", texto: "Profissionais atenciosos, ambiente agradável e climatizado, um cuidado visível em cada detalhe." },
+      { nome: "Raphael C.", texto: "Excelentes profissionais. Saí na régua e 10 anos mais novo." },
+      { nome: "Yuri Q.", texto: "Corto lá toda semana. Marco o horário e nunca tem atraso." },
+      { nome: "Sharda V.", texto: "Profissional muito caprichoso. O corte ficou do jeito que eu queria." },
+      { nome: "Christian C.", texto: "Corte de qualidade, atenciosos demais com todos os clientes, preço acessível para todos." },
+      { nome: "Gleiton S.", texto: "Todas as vezes que venho da Itália só corto com o Gabriel, nota 1.000." },
     ],
   };
   // ======================================================
 
+  const $ = s => document.querySelector(s);
   const setLinks = (cls, url) => document.querySelectorAll(cls).forEach(a => a.href = url);
   setLinks(".js-booksy", CONFIG.booksy);
   setLinks(".js-instagram", CONFIG.instagram);
   setLinks(".js-google", CONFIG.google);
   setLinks(".js-whatsapp", CONFIG.whatsapp);
-  document.getElementById("ano").textContent = new Date().getFullYear();
+  $("#ano").textContent = new Date().getFullYear();
 
-  const grid = document.getElementById("ig-grid");
-  CONFIG.fotos.forEach(f => {
-    const a = document.createElement("a");
-    a.href = f.link || CONFIG.instagram; a.target = "_blank"; a.rel = "noopener";
-    const img = document.createElement("img");
-    img.src = f.src; img.alt = "Corte feito na barbearia"; img.loading = "lazy";
-    a.appendChild(img); grid.appendChild(a);
-  });
+  const reais = v => "R$ " + v.toFixed(2).replace(".", ",");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  const rev = document.getElementById("reviews");
-  CONFIG.avaliacoes.forEach(r => {
-    const el = document.createElement("div");
-    el.className = "review";
-    el.innerHTML = `<div class="stars">★★★★★</div><p></p>
-      <div class="who"><div class="av"></div><div><b></b><small></small></div></div>`;
-    el.querySelector("p").textContent = "“" + r.texto + "”";
-    el.querySelector(".av").textContent = r.nome[0];
-    el.querySelector("b").textContent = r.nome;
-    el.querySelector("small").textContent = "Google · " + r.quando;
-    rev.appendChild(el);
-  });
+  // Tabela de preços (cartaz)
+  $("#lista-precos").innerHTML = CONFIG.servicos.map(s =>
+    `<div class="item-preco"><div><b>${esc(s.nome)}</b><small>${esc(s.desc)}</small></div><i></i><span>${reais(s.preco)}</span></div>`).join("");
 
+  // Faixa rolando (duplicada para o loop não ter emenda)
+  const nomes = CONFIG.servicos.map(s => `<span>${esc(s.nome)}</span>`).join("");
+  $("#faixa").innerHTML = nomes + nomes + nomes + nomes;
+
+  // Horário + "aberto agora" no fuso de Juiz de Fora
+  const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+  const agora = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  const hoje = agora.getDay(), min = agora.getHours() * 60 + agora.getMinutes();
+  const m = h => +h.slice(0, 2) * 60 + +h.slice(3);
+  $("#horarios").innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => {
+    const h = CONFIG.horarios[d];
+    return `<div class="${d === hoje ? "hoje" : ""}"><span>${DIAS[d]}${d === hoje ? " · hoje" : ""}</span><span>${h ? h.join(" – ") : "Fechado"}</span></div>`;
+  }).join("");
+  const hh = CONFIG.horarios[hoje];
+  const aberto = hh && min >= m(hh[0]) && min < m(hh[1]);
+  $("#status").textContent = aberto ? `Aberto · fecha ${hh[1]}` : "Fechado agora";
+  $("#status").classList.toggle("aberto", !!aberto);
+
+  // Avaliações: uma por vez, troca sozinha
+  let i = 0, timer;
+  const mostra = n => {
+    i = (n + CONFIG.avaliacoes.length) % CONFIG.avaliacoes.length;
+    const r = CONFIG.avaliacoes[i];
+    $("#citacao").innerHTML = `<div class="troca"><blockquote>${esc(r.texto)}</blockquote><cite>★★★★★ · ${esc(r.nome)} · Google</cite></div>`;
+    $("#cont").textContent = `${String(i + 1).padStart(2, "0")} / ${String(CONFIG.avaliacoes.length).padStart(2, "0")}`;
+  };
+  const auto = () => { clearInterval(timer); timer = setInterval(() => mostra(i + 1), 7000); };
+  $("#ant").onclick = () => { mostra(i - 1); auto(); };
+  $("#prox").onclick = () => { mostra(i + 1); auto(); };
+  mostra(0); auto();
+
+  // Revela as seções ao rolar
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold: .12 });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  document.querySelectorAll(".revela").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
