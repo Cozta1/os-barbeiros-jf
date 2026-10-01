@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Os Barbeiros JF · Gabriel Pires</title>
-<meta name="description" content="Barbearia Os Barbeiros JF — barbearia tradicional com estilo moderno em Benfica, Juiz de Fora. Nota 5,0 no Google. Cortes, barba e acabamento premium. Agende pelo Booksy.">
+<meta name="description" content="Barbearia Os Barbeiros JF — barbearia tradicional com estilo moderno em Benfica, Juiz de Fora. Nota 5,0 no Google. Cortes, barba e acabamento premium. Agende online.">
 <link rel="icon" href="fotos/favicon.png">
 <link rel="apple-touch-icon" href="fotos/logo-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,7 +170,7 @@
       <a class="link" href="#instagram">Instagram</a>
       <a class="link" href="#avaliacoes">Avaliações</a>
       <a class="link" href="#local">Localização</a>
-      <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">Agendar</a>
+      <a class="btn btn-blue js-agendar" href="#">Agendar</a>
     </nav>
   </div>
 </header>
@@ -185,7 +185,7 @@
         <div class="script sign">Gabriel Pires</div>
         <p>Barbearia tradicional com estilo moderno. Cortes, barba e acabamento premium — marque seu horário online em segundos.</p>
         <div class="ctas">
-          <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">📅 Agendar no Booksy</a>
+          <a class="btn btn-blue js-agendar" href="#">📅 Agendar online</a>
           <a class="btn btn-ghost js-whatsapp" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
         </div>
         <div class="badges">
@@ -205,7 +205,7 @@
       <div class="eyebrow">O que fazemos</div>
       <h2>Serviços</h2>
       <div class="divider"></div>
-      <p class="lead">Atendimento caprichado do início ao fim. Escolha o serviço e marque seu horário no Booksy.</p>
+      <p class="lead">Atendimento caprichado do início ao fim. Escolha o serviço e marque seu horário online.</p>
       <div class="grid grid-3">
         <div class="card"><div class="icon">💈</div><h3>Máquina geral</h3><p>Corte todo na máquina, prático e alinhado.</p><div class="price">R$ 25,00</div></div>
         <div class="card"><div class="icon">✂️</div><h3>Disfarçado</h3><p>Degradê na régua, do mais baixo ao mais marcado.</p><div class="price">R$ 35,00</div></div>
@@ -287,7 +287,7 @@
                 <tr><td>Sábado</td><td><b>08:00 às 16:00</b></td></tr>
                 <tr><td>Domingo</td><td>Fechado</td></tr>
               </table>
-              <small>Veja os horários livres no Booksy</small></div></li>
+              <small>Veja os horários livres na agenda online</small></div></li>
             <li><span class="i">📞</span><div><b><a class="js-whatsapp" href="#" target="_blank" rel="noopener">(32) 99123-4073</a></b><small>WhatsApp</small></div></li>
           </ul>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
@@ -307,8 +307,8 @@
     <div class="wrap reveal">
       <img src="fotos/logo.jpg" alt="">
       <h2>Bora dar um tapa no visual?</h2>
-      <p class="lead">Escolha o serviço, o dia e o horário direto no Booksy.</p>
-      <a class="btn btn-blue js-booksy" href="#" target="_blank" rel="noopener">📅 Agendar meu horário</a>
+      <p class="lead">Escolha o serviço, o dia e o horário direto na agenda online.</p>
+      <a class="btn btn-blue js-agendar" href="#">📅 Agendar meu horário</a>
     </div>
   </section>
 </main>
@@ -316,7 +316,7 @@
 <footer>
   <div class="wrap">
     <span>© <span id="ano"></span> Barbearia Os Barbeiros JF · Gabriel Pires</span>
-    <span><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a> · <a class="js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a class="js-booksy" href="#" target="_blank" rel="noopener">Booksy</a></span>
+    <span><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a> · <a class="js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a class="js-agendar" href="#">Agendar</a></span>
   </div>
 </footer>
 
@@ -327,8 +327,8 @@
 <script>
   // ============ CONFIGURAÇÃO — edite só aqui ============
   const CONFIG = {
-    // TODO: colar aqui o link do perfil no Booksy
-    booksy: "https://booksy.com/",
+    // Agenda online própria (Navalha)
+    agendar: "https://cozta1.github.io/navalha/agendar.html?b=os-barbeiros-jf",
     instagram: "https://www.instagram.com/gabrielpires_barber01/",
     google: "https://maps.app.goo.gl/CE2bm7PWRhQGa71v7",
     whatsapp: "https://wa.me/5532991234073?text=" + encodeURIComponent("Olá! Vim pelo site e gostaria de agendar um horário."),
@@ -353,7 +353,7 @@
   // ======================================================
 
   const setLinks = (cls, url) => document.querySelectorAll(cls).forEach(a => a.href = url);
-  setLinks(".js-booksy", CONFIG.booksy);
+  setLinks(".js-agendar", CONFIG.agendar);
   setLinks(".js-instagram", CONFIG.instagram);
   setLinks(".js-google", CONFIG.google);
   setLinks(".js-whatsapp", CONFIG.whatsapp);
